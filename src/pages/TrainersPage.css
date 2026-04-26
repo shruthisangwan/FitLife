@@ -1,0 +1,232 @@
+.trainers-list-section {
+  background: var(--dark-gray);
+}
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .trainers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.trainer-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-slow);
+  box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.trainer-card:hover {
+  border-color: rgba(255, 77, 77, 0.5);
+  transform: translateY(-10px) rotateX(3deg) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, rgba(255, 77, 77, 0.08) 0%, rgba(255, 107, 107, 0.04) 100%);
+}
+
+.trainer-card-top {
+  height: 200px;
+  background: linear-gradient(135deg, rgba(255, 77, 77, 0.15) 0%, rgba(255, 107, 107, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 77, 77, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 77, 77, 0.15) 0%, rgba(255, 107, 107, 0.05) 100%);
+  background-size: 200% 200%, 200% 200%, 100% 100%;
+}
+
+.trainer-card-top::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 77, 77, 0.2) 0%, transparent 70%);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.trainer-card-top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+  pointer-events: none;
+}
+
+.trainer-avatar-lg {
+  font-size: 5rem;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 10px 20px rgba(255, 77, 77, 0.35));
+  animation: float 3s ease-in-out infinite;
+}
+
+.trainer-rating-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trainer-card-body {
+  padding: 24px;
+}
+
+.trainer-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.trainer-role-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.trainer-bio {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.trainer-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.trainer-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.specialty-tag {
+  background: rgba(255, 77, 77, 0.1);
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.trainer-certs {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.certs-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.trainer-achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.trainer-achievement svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trainer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.trainer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--medium-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.trainer-socials a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.trainers-cta {
+  padding: 80px 0;
+  background: var(--gradient-primary);
+  text-align: center;
+}
+
+.trainers-cta h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.trainers-cta p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+.trainers-cta .btn-primary {
+  background: white;
+  color: var(--primary-dark);
+}
+
+.trainers-cta .btn-primary:hover {
+  background: var(--dark);
+  color: white;
+}
